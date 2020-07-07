@@ -160,7 +160,11 @@
                                 <action selector="cancelPressed:" destination="p9L-yb-lZg" id="cr3-jh-rvJ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="ldR-ph-4ef"/>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="ldR-ph-4ef">
+                            <connections>
+                                <action selector="sharePressed:" destination="p9L-yb-lZg" id="cWe-0M-XHS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="captionTextField" destination="ask-77-XeD" id="Ack-DR-sf0"/>

@@ -8,6 +8,7 @@
 
 #import "ComposeViewController.h"
 #import <UIKit/UIKit.h>
+#import "Post.h"
 //#import "UITapGest"
 
 
@@ -69,11 +70,10 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+//    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
-    NSLog(@"this is my image: %@", editedImage);
     self.photoImageView.image = editedImage;//[self resizeImage:editedImage withSize:<#(CGSize)#>]
     self.instructionLabel.text  = @"";
     
@@ -95,6 +95,40 @@
     
     return newImage;
 }
+
+- (IBAction)sharePressed:(id)sender {
+    //post
+//    Post *newPost = [Post new];
+//    [newPost postUserImage];
+    if(self.photoImageView.image == nil){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error posting"
+               message:@"Please add a picture"
+        preferredStyle:(UIAlertControllerStyleAlert)];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+          style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * _Nonnull action) {
+                // handle response here.
+        }];
+        
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:^{
+            
+        }];
+    }else{
+        [Post postUserImage:[self resizeImage:self.photoImageView.image withSize: CGSizeMake(400, 400)] withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(error != nil){
+                NSLog(@"Something went wrong");
+            }else{
+                NSLog(@"Post was successful!");
+            }
+        }];
+        //try to update feed?
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
+}
+
 /*
 #pragma mark - Navigation
 
