@@ -20,6 +20,7 @@
 		E033B9C424B3CAB900E972F8 /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9C324B3CAB900E972F8 /* InstagramUITests.m */; };
 		E033B9D324B3DA2300E972F8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9D224B3DA2300E972F8 /* LoginViewController.m */; };
 		E033B9D624B3E03C00E972F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9D524B3E03C00E972F8 /* HomeViewController.m */; };
+		E033B9D924B5027800E972F8 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9D824B5027800E972F8 /* ComposeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		E033B9D224B3DA2300E972F8 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E033B9D424B3E03C00E972F8 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		E033B9D524B3E03C00E972F8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		E033B9D724B5027800E972F8 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		E033B9D824B5027800E972F8 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,7 @@
 		E033B99B24B3CAB800E972F8 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				E033B9DA24B5028300E972F8 /* View Controllers */,
 				E033B99C24B3CAB800E972F8 /* AppDelegate.h */,
 				E033B99D24B3CAB800E972F8 /* AppDelegate.m */,
 				E033B99F24B3CAB800E972F8 /* SceneDelegate.h */,
@@ -156,10 +160,6 @@
 				E033B9AA24B3CAB900E972F8 /* LaunchScreen.storyboard */,
 				E033B9AD24B3CAB900E972F8 /* Info.plist */,
 				E033B9AE24B3CAB900E972F8 /* main.m */,
-				E033B9D124B3DA2300E972F8 /* LoginViewController.h */,
-				E033B9D224B3DA2300E972F8 /* LoginViewController.m */,
-				E033B9D424B3E03C00E972F8 /* HomeViewController.h */,
-				E033B9D524B3E03C00E972F8 /* HomeViewController.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -180,6 +180,19 @@
 				E033B9C524B3CAB900E972F8 /* Info.plist */,
 			);
 			path = InstagramUITests;
+			sourceTree = "<group>";
+		};
+		E033B9DA24B5028300E972F8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E033B9D124B3DA2300E972F8 /* LoginViewController.h */,
+				E033B9D224B3DA2300E972F8 /* LoginViewController.m */,
+				E033B9D424B3E03C00E972F8 /* HomeViewController.h */,
+				E033B9D524B3E03C00E972F8 /* HomeViewController.m */,
+				E033B9D724B5027800E972F8 /* ComposeViewController.h */,
+				E033B9D824B5027800E972F8 /* ComposeViewController.m */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +436,7 @@
 				E033B9D324B3DA2300E972F8 /* LoginViewController.m in Sources */,
 				E033B99E24B3CAB800E972F8 /* AppDelegate.m in Sources */,
 				E033B9AF24B3CAB900E972F8 /* main.m in Sources */,
+				E033B9D924B5027800E972F8 /* ComposeViewController.m in Sources */,
 				E033B9D624B3E03C00E972F8 /* HomeViewController.m in Sources */,
 				E033B9A124B3CAB800E972F8 /* SceneDelegate.m in Sources */,
 			);
