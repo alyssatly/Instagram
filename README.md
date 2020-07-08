@@ -8,17 +8,17 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication
-- [ ] User can log in and log out of his or her account
-- [ ] The current signed in user is persisted across app restarts
-- [ ] User can take a photo, add a caption, and post it to "Instagram"
-- [ ] User can view the last 20 posts submitted to "Instagram"
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [ ] User can tap a post to view post details, including timestamp and caption.
+- [X] User can sign up to create a new account using Parse authentication
+- [X] User can log in and log out of his or her account
+- [X] The current signed in user is persisted across app restarts
+- [X] User can take a photo, add a caption, and post it to "Instagram"
+- [X] User can view the last 20 posts submitted to "Instagram"
+- [X] User can pull to refresh the last 20 posts submitted to "Instagram"
+- [X] User can tap a post to view post details, including timestamp and caption.
 
 The following **optional** features are implemented:
 
-- [ ] Run your app on your phone and use the camera to take the photo
+- [X] Run your app on your phone and use the camera to take the photo
 - [ ] Style the login page to look like the real Instagram login page.
 - [ ] Style the feed to look like the real Instagram feed.
 - [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile

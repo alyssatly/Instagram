@@ -28,6 +28,7 @@
     // Do any additional setup after loading the view.
     self.instructionLabel.text = @"Tap to select image";
     self.photoImageView.image = nil;
+    self.captionTextField.text = @"";
     //can tap image
     self.photoImageView.userInteractionEnabled = YES;
 

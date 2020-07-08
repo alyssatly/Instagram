@@ -25,7 +25,7 @@
     _post = post;
     self.photoImageView.file = post[@"image"];
     [self.photoImageView loadInBackground];
-    self.captionLabel = post[@"caption"];
+    self.captionLabel.text = post[@"caption"];
 }
 
 @end

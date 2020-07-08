@@ -55,6 +55,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qwz-Mk-E2z"/>
                     <connections>
+                        <outlet property="loginView" destination="8bC-Xf-vdC" id="PSQ-Ov-Vxk"/>
                         <outlet property="passwordTextField" destination="AKx-qb-bTk" id="96P-O2-WTP"/>
                         <outlet property="usernameTextField" destination="SgV-Pf-CAt" id="PKw-HZ-pyC"/>
                         <segue destination="INs-is-44S" kind="presentation" identifier="firstSegue" id="lM0-wa-Db7"/>
@@ -100,6 +101,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="Amw-0N-hz0" id="I3d-TU-J5H"/>
                                             <outlet property="photoImageView" destination="nk7-LY-wPZ" id="ePi-jD-85t"/>
+                                            <segue destination="DfN-LR-J6i" kind="show" identifier="detailPost" id="oM2-jG-vk5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,7 +118,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="insta_camera_btn" id="HHR-QY-ga6">
                             <connections>
-                                <segue destination="N0z-Uh-PJ0" kind="presentation" id="GPQ-NT-kbj"/>
+                                <segue destination="N0z-Uh-PJ0" kind="presentation" identifier="composePost" id="GPQ-NT-kbj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -127,6 +129,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2EA-hK-dBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1931.8840579710147" y="912.72321428571422"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="GQA-xv-CAd">
+            <objects>
+                <viewController id="DfN-LR-J6i" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iPF-3P-Dmc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpS-qn-XLg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjx-b8-PqP" customClass="PFImageView">
+                                        <rect key="frame" x="0.0" y="68" width="414" height="384"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CT-Pa-Vx7">
+                                        <rect key="frame" x="8" y="16" width="378" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is my caption!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-7c-0Zj">
+                                        <rect key="frame" x="28" y="485" width="358" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKG-z3-Fb7">
+                                        <rect key="frame" x="36" y="629" width="309" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="3jK-sx-JH6"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="nnx-Ds-gzL"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Wl5-Zw-aZk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mwy-Cn-RhK"/>
+                    <connections>
+                        <outlet property="captionLabel" destination="dHw-7c-0Zj" id="1C0-9y-RTp"/>
+                        <outlet property="postImageView" destination="gjx-b8-PqP" id="cxn-KA-uVM"/>
+                        <outlet property="timeLabel" destination="fKG-z3-Fb7" id="dIB-A1-7CS"/>
+                        <outlet property="usernameLabel" destination="7CT-Pa-Vx7" id="l9A-iw-b50"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZc-dR-FUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915.9420289855075" y="1583.7053571428571"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="hkc-nN-6j1">

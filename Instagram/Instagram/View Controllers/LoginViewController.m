@@ -12,6 +12,7 @@
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) IBOutlet UIView *loginView;
 
 
 @end
@@ -21,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //run textfield programmatically
+    
+    //hide keyboard with hideKeyboard selector
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.loginView addGestureRecognizer:gestureRecognizer];
+}
+
+-(void)hideKeyboard{
+    [self.usernameTextField endEditing:YES];
+    [self.passwordTextField endEditing:YES];
 }
 
 - (IBAction)signupPressed:(UIButton *)sender {

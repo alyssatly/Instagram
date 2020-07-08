@@ -23,6 +23,7 @@
 		E033B9D924B5027800E972F8 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9D824B5027800E972F8 /* ComposeViewController.m */; };
 		E033B9DE24B5227E00E972F8 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9DD24B5227E00E972F8 /* Post.m */; };
 		E033B9E624B5327B00E972F8 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9E524B5327B00E972F8 /* PostCell.m */; };
+		E033B9EB24B6638100E972F8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E033B9EA24B6638100E972F8 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		E033B9DD24B5227E00E972F8 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		E033B9E424B5327B00E972F8 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		E033B9E524B5327B00E972F8 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		E033B9E924B6638100E972F8 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		E033B9EA24B6638100E972F8 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 				E033B9D524B3E03C00E972F8 /* HomeViewController.m */,
 				E033B9D724B5027800E972F8 /* ComposeViewController.h */,
 				E033B9D824B5027800E972F8 /* ComposeViewController.m */,
+				E033B9E924B6638100E972F8 /* DetailsViewController.h */,
+				E033B9EA24B6638100E972F8 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				E033B9E624B5327B00E972F8 /* PostCell.m in Sources */,
 				E033B9D924B5027800E972F8 /* ComposeViewController.m in Sources */,
 				E033B9D624B3E03C00E972F8 /* HomeViewController.m in Sources */,
+				E033B9EB24B6638100E972F8 /* DetailsViewController.m in Sources */,
 				E033B9A124B3CAB800E972F8 /* SceneDelegate.m in Sources */,
 				E033B9DE24B5227E00E972F8 /* Post.m in Sources */,
 			);
