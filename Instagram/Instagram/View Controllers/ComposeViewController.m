@@ -117,7 +117,8 @@
             
         }];
     }else{
-        [Post postUserImage:[self resizeImage:self.photoImageView.image withSize: CGSizeMake(400, 400)] withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        //[self resizeImage:self.photoImageView.image withSize: CGSizeMake(400, 400)]
+        [Post postUserImage:self.photoImageView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(error != nil){
                 NSLog(@"Something went wrong");
             }else{

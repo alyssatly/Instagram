@@ -9,24 +9,52 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
+#import "PostCell.h"
+#import "Post.h"
 #import <Parse/Parse.h>
 
 
-@interface HomeViewController () 
-@property (strong, nonatomic) IBOutlet UITableView *homeTableView;
 
+
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *homeTableView;
+@property (strong, nonatomic) NSArray *posts;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.homeTableView.rowHeight = 513;
+    self.homeTableView.dataSource = self;
+    self.homeTableView.delegate = self;
     // Do any additional setup after loading the view.
+    [self getPosts];
+    
+    
+}
+
+-(void)getPosts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            
+            self.posts = posts;
+            NSLog(@"Successfully retrieved posts%@" , self.posts);
+            
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        [self.homeTableView reloadData];
+    }];
+    
 }
 
 - (IBAction)logoutPressed:(id)sender {
-        
-    
     
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if(error != nil){
@@ -53,4 +81,63 @@
 }
 */
 
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    Post *instaPost = self.posts[indexPath.row];
+    
+    cell.post = instaPost;
+    //cell.captionLabel.text = instaPost[@"caption"];
+    //cell.postImageView.image = nil;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.posts.count;
+}
+/*
+- (void)encodeWithCoder:(nonnull NSCoder *)coder {
+    <#code#>
+}
+
+- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
+    <#code#>
+}
+
+- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    <#code#>
+}
+
+- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
+    <#code#>
+}
+
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    <#code#>
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    <#code#>
+}
+
+- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    <#code#>
+}
+
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
+    <#code#>
+}
+
+- (void)setNeedsFocusUpdate {
+    <#code#>
+}
+
+- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+    <#code#>
+}
+
+- (void)updateFocusIfNeeded {
+    <#code#>
+}
+*/
 @end
