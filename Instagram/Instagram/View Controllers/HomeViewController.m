@@ -19,7 +19,8 @@
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *homeTableView;
-@property (strong, nonatomic) NSArray *posts;
+@property (strong, nonatomic) NSMutableArray *posts;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation HomeViewController
@@ -32,6 +33,12 @@
     // Do any additional setup after loading the view.
     [self getPosts];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(getPosts) forControlEvents:UIControlEventValueChanged];
+    [self.homeTableView insertSubview:self.refreshControl atIndex:0];
+    [self.homeTableView addSubview:self.refreshControl];
+    
     
 }
 
@@ -43,12 +50,13 @@
         if (posts != nil) {
             // do something with the array of object returned by the call
             
-            self.posts = posts;
+            self.posts = (NSMutableArray *)posts;
             NSLog(@"Successfully retrieved posts%@" , self.posts);
             
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
         [self.homeTableView reloadData];
     }];
     
@@ -70,6 +78,10 @@
         }
     }];
 }
+
+//-(void)didPost:(Post *)post {
+//    [self.posts addObject:post];
+//}
 
 /*
 #pragma mark - Navigation
