@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *instructionLabel;
 @property (strong, nonatomic) IBOutlet UITextField *captionTextField;
+@property (strong, nonatomic) IBOutlet UIView *composeView;
 
 
 @end
@@ -30,6 +31,9 @@
     self.photoImageView.image = nil;
     self.captionTextField.text = @"";
     //can tap image
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.composeView addGestureRecognizer:gestureRecognizer];
+    
     self.photoImageView.userInteractionEnabled = YES;
 
     UITapGestureRecognizer *tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(tapGesture:)];
@@ -47,6 +51,9 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+-(void)hideKeyboard{
+    [self.captionTextField endEditing:YES];
+}
 
 - (void) tapGesture: (id)sender
 {

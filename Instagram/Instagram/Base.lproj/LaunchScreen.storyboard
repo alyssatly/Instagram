@@ -19,7 +19,7 @@
                                 <rect key="frame" x="83" y="458" width="233" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="instagram-logos-png-images-free-download-2" translatesAutoresizingMaskIntoConstraints="NO" id="npJ-sb-tcN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="instagram-logos-png-images-free-download-2" translatesAutoresizingMaskIntoConstraints="NO" id="npJ-sb-tcN">
                                 <rect key="frame" x="142" y="312" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>

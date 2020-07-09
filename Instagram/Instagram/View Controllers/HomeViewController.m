@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.homeTableView.rowHeight = 513;
     self.homeTableView.dataSource = self;
     self.homeTableView.delegate = self;
     // Do any additional setup after loading the view.

@@ -36,38 +36,10 @@
 
 - (IBAction)signupPressed:(UIButton *)sender {
     if([self.usernameTextField.text isEqual:@""]){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
-               message:@"Username field is empty"
-        preferredStyle:(UIAlertControllerStyleAlert)];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-          style:UIAlertActionStyleDefault
-        handler:^(UIAlertAction * _Nonnull action) {
-                // handle response here.
-        }];
-        
-        [alert addAction:okAction];
-        
-        [self presentViewController:alert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-        }];
+        [self addAlert:@"Error signing up" message:@"Username field is empty"];
         
     }else if([self.passwordTextField.text isEqual:@""]){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
-               message:@"Password field is empty"
-        preferredStyle:(UIAlertControllerStyleAlert)];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-          style:UIAlertActionStyleDefault
-        handler:^(UIAlertAction * _Nonnull action) {
-                // handle response here.
-        }];
-        
-        [alert addAction:okAction];
-        
-        [self presentViewController:alert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-        }];
+        [self addAlert:@"Error signing up" message:@"Password field is empty"];
     }else{
         PFUser *newUser = [PFUser user];
         
@@ -80,21 +52,7 @@
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error signing up"
-                       message:error.localizedDescription
-                preferredStyle:(UIAlertControllerStyleAlert)];
-                
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                  style:UIAlertActionStyleDefault
-                handler:^(UIAlertAction * _Nonnull action) {
-                        // handle response here.
-                }];
-                
-                [alert addAction:okAction];
-                
-                [self presentViewController:alert animated:YES completion:^{
-                    // optional code for what happens after the alert controller has finished presenting
-                }];
+                [self addAlert:@"Error signing up" message:error.localizedDescription];
             } else {
                 NSLog(@"User registered successfully");
                 [self performSegueWithIdentifier:@"firstSegue" sender:nil];
@@ -105,37 +63,45 @@
 }
 
 - (IBAction)loginPressed:(UIButton *)sender {
-    NSString *username = self.usernameTextField.text;
-    NSString *password = self.passwordTextField.text;
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-        if (error != nil) {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
-            NSLog(@"Error: %@", error.localizedDescription);
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error logging in"
-                   message:error.localizedDescription
-            preferredStyle:(UIAlertControllerStyleAlert)];
-            
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-              style:UIAlertActionStyleDefault
-            handler:^(UIAlertAction * _Nonnull action) {
-                    // handle response here.
-            }];
-            
-            [alert addAction:okAction];
-            
-            [self presentViewController:alert animated:YES completion:^{
-                // optional code for what happens after the alert controller has finished presenting
-            }];
-        } else {
-            NSLog(@"User logged in successfully");
-            [self performSegueWithIdentifier:@"firstSegue" sender:nil];
-            // display view controller that needs to shown after successful login
-        }
-    }];
+    if([self.usernameTextField.text isEqual:@""]){
+        [self addAlert:@"Error logging in" message:@"Username field is empty"];
+        
+    }else if([self.passwordTextField.text isEqual:@""]){
+        [self addAlert:@"Error logging in" message:@"Password field is empty"];
+    }else{
+        NSString *username = self.usernameTextField.text;
+        NSString *password = self.passwordTextField.text;
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+            if (error != nil) {
+                NSLog(@"User log in failed: %@", error.localizedDescription);
+                [self addAlert:@"Error logging in" message:error.localizedDescription];
+                
+            } else {
+                NSLog(@"User logged in successfully");
+                [self performSegueWithIdentifier:@"firstSegue" sender:nil];
+                // display view controller that needs to shown after successful login
+            }
+        }];
+    }
 }
 
-
+-(void)addAlert:(NSString *)title message:(NSString*)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+            message:message
+     preferredStyle:(UIAlertControllerStyleAlert)];
+     
+     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+       style:UIAlertActionStyleDefault
+     handler:^(UIAlertAction * _Nonnull action) {
+             // handle response here.
+     }];
+     
+     [alert addAction:okAction];
+     
+     [self presentViewController:alert animated:YES completion:^{
+         // optional code for what happens after the alert controller has finished presenting
+     }];
+}
 /*
 #pragma mark - Navigation
 
