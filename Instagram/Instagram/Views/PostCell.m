@@ -7,6 +7,7 @@
 //
 
 #import "PostCell.h"
+#import "DateTools.h"
 
 @implementation PostCell
 
@@ -26,6 +27,8 @@
     self.photoImageView.file = post[@"image"];
     [self.photoImageView loadInBackground];
     self.captionLabel.text = post[@"caption"];
+    self.timeLabel.text = self.timeLabel.text = [post.createdAt timeAgoSinceNow];
+    self.usernameLabel.text = post.author.username;
 }
 
 @end

@@ -19,11 +19,11 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [X] Run your app on your phone and use the camera to take the photo
-- [ ] Style the login page to look like the real Instagram login page.
-- [ ] Style the feed to look like the real Instagram feed.
+- [X] Style the login page to look like the real Instagram login page. (simillar)
+- [X] Style the feed to look like the real Instagram feed. (not excatly, but looks simillar enough)
 - [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
-- [X] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
-- [ ] Show the username and creation time for each post
+- [X] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling. (did not user header view)
+- [X] Show the username and creation time for each post
 - [X] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - User Profiles:
   - [ ] Allow the logged in user to add a profile photo
@@ -39,16 +39,19 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I want to discuss more on how to make the home page look more similar to instagram, I was particularly having trouble with implementing header cells
+2. I would want to discuss more on how to implement comments because the logic behind that seems more complicated than what we have done so far
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/bGVRhUJ5tw.gif' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/dFKO4Wjh5U.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/LBhjOfJTMY.gif' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/q9n7su8mJa.gif' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with recordit.co
 
 ## Credits
 
@@ -59,11 +62,11 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The MVPs for the app this time were fairly straight forward. Something I had a lot of problems with were setting up the parse dashboard, however this was an issue with about of the facebook given laptops. When we were trying to figure out solutions for that, it was the most frustrating part of this whole project. I thought the posting and retrieving features were the coolest features and they were challenging but allowed me to learn something new and important for developing mobile apps. 
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2020] [Alyssa Tan]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

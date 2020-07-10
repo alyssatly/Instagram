@@ -43,11 +43,12 @@
     [self.homeTableView insertSubview:self.refreshControl atIndex:0];
     [self.homeTableView addSubview:self.refreshControl];
     
+//    [self.homeTableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:HeaderViewIdentifier];
+    
     
 }
 
 -(void)getPosts {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
@@ -137,6 +138,7 @@
             
             // ... Code to load more results ...
             if(self.posts.count == self.postLimit){
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 self.postLimit += 10;
                 [self getPosts];
             }
@@ -145,12 +147,6 @@
 
     }
 }
-
-//-(void)loadMoreData{
-//
-//
-//}
-
 
 /*
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {
