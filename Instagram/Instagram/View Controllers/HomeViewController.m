@@ -13,15 +13,18 @@
 #import "Post.h"
 #import "DetailsViewController.h"
 #import <Parse/Parse.h>
+#import "MBProgressHUD.h"
 
 
 
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *homeTableView;
 @property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
+@property (assign, nonatomic) int postLimit;
 @end
 
 @implementation HomeViewController
@@ -30,6 +33,7 @@
     [super viewDidLoad];
     self.homeTableView.dataSource = self;
     self.homeTableView.delegate = self;
+    self.postLimit = 20;
     // Do any additional setup after loading the view.
     [self getPosts];
     
@@ -43,21 +47,24 @@
 }
 
 -(void)getPosts {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    query.limit = 20;
+    query.limit = self.postLimit;
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             // do something with the array of object returned by the call
             
             self.posts = (NSMutableArray *)posts;
             NSLog(@"Successfully retrieved posts%@" , self.posts);
+            self.isMoreDataLoading = false;
             
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self.homeTableView reloadData];
     }];
     
@@ -115,6 +122,36 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+     // Handle scroll behavior here
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.homeTableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.homeTableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.homeTableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            // ... Code to load more results ...
+            if(self.posts.count == self.postLimit){
+                self.postLimit += 10;
+                [self getPosts];
+            }
+            
+        }
+
+    }
+}
+
+//-(void)loadMoreData{
+//
+//
+//}
+
+
 /*
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {
     <#code#>

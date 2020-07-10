@@ -133,7 +133,7 @@
                 NSLog(@"Something went wrong");
             }else{
                 NSLog(@"Post was successful!");
-                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [self dismissViewControllerAnimated:true completion:nil];
             }
         }];

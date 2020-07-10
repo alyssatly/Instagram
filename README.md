@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 - [ ] Style the login page to look like the real Instagram login page.
 - [ ] Style the feed to look like the real Instagram feed.
 - [ ] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs for Home Feed and Profile
-- [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
+- [X] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 - [ ] Show the username and creation time for each post
 - [X] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - User Profiles:
