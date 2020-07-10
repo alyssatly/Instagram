@@ -9,6 +9,7 @@
 #import "ComposeViewController.h"
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "MBProgressHUD.h"
 //#import "UITapGest"
 
 
@@ -126,16 +127,19 @@
         }];
     }else{
         //[self resizeImage:self.photoImageView.image withSize: CGSizeMake(400, 400)]
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [Post postUserImage:self.photoImageView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(error != nil){
                 NSLog(@"Something went wrong");
             }else{
                 NSLog(@"Post was successful!");
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                [self dismissViewControllerAnimated:true completion:nil];
             }
         }];
         //try to update feed?
         
-        [self dismissViewControllerAnimated:true completion:nil];
+        
     }
 }
 

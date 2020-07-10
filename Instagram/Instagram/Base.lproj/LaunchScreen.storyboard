@@ -15,16 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="instagram-logo-text-black-png" translatesAutoresizingMaskIntoConstraints="NO" id="W07-pH-3uz">
-                                <rect key="frame" x="83" y="458" width="233" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="instagram-logos-png-images-free-download-2" translatesAutoresizingMaskIntoConstraints="NO" id="npJ-sb-tcN">
-                                <rect key="frame" x="142" y="312" width="130" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="instagram_launch " translatesAutoresizingMaskIntoConstraints="NO" id="npJ-sb-tcN">
+                                <rect key="frame" x="142" y="388" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="GxQ-rk-iRq"/>
+                                    <constraint firstAttribute="height" constant="130" id="IxQ-Eg-XJW"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="npJ-sb-tcN" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="UJR-wY-m9N"/>
+                            <constraint firstItem="npJ-sb-tcN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UbU-dB-TV5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -34,7 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="instagram-logo-text-black-png" width="1000" height="288"/>
-        <image name="instagram-logos-png-images-free-download-2" width="1000" height="1000"/>
+        <image name="instagram_launch " width="512" height="512"/>
     </resources>
 </document>
